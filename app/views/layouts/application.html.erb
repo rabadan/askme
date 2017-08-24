@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Askme</title>
+  <head lang="ru">
+    <meta charset="UTF-8">
+    <title>Хорошие вопросы</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <div class="container">
+        <div class="header-logo">
+          <h1 class="header-title">
+            <%= link_to "Хорошие вопросы", root_path %>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

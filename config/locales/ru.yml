@@ -1,0 +1,8 @@
+ru:
+  hello: "Привет мир"
+  question:
+    zero: "нет вопросов"
+    one: "%{count} вопрос"
+    few: "%{count} вопроса"
+    other: "%{count} вопросов"
+    many: "%{count} вопросов"
