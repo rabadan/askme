@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :password_hash
       t.string :password_salt
       t.string :avatar_url
+      t.string :color
 
       t.timestamps
     end

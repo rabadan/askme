@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20170823072257) do
   create_table "questions", force: :cascade do |t|
     t.string "text"
     t.string "answer"
+    t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170823072257) do
     t.string "password_hash"
     t.string "password_salt"
     t.string "avatar_url"
+    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

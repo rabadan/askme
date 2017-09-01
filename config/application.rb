@@ -21,8 +21,10 @@ module Askme
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
-    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.available_locales = [:en, :ru]
     config.i18n.default_locale = :ru
+    config.i18n.locale = :ru
+    config.i18n.fallbacks = [:en]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -30,5 +32,7 @@ module Askme
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.time_zone = 'Moscow'
   end
 end

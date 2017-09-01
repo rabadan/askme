@@ -1,70 +1,75 @@
 .users-list-item {
-  display: inline-block;
+    display: inline-block;
 }
 
 .user-header {
-  padding: 20px 0;
-  background: #005a55;
-  color: white;
+    padding: 20px 0;
+    color: white;
 }
 
 .user-header a {
-  color: white;
+    color: white;
 }
 
 .user-image-div {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  border: 5px solid #00b6ad;
-  border-radius: 50%;
-  overflow: hidden;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border: 5px solid #00b6ad;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 .user-image-div-small {
-  width: 75px;
-  height: 75px;
-  border-width: 3px;
+    width: 75px;
+    height: 75px;
+    border-width: 3px;
 }
 
 .user-image {
-  max-width: 100%;
-  max-height: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .user-details {
-  padding: 10px 0;
-  background: white;
+    padding: 10px 0;
+    background: white;
 }
 
 .user-statistics {
-  padding-top: 10px;
-  margin-top: 10px;
-  border-top: 1px solid #D9E6E5;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #D9E6E5;
 }
 
 .user-questions {
-  background: #D9E6E5;
+    background: #D9E6E5;
 }
 
 .user-question-form {
-  padding: 10px;
-  margin-left: 10px;
-  background: #D9E6E5;
+    padding: 10px;
+    margin-left: 10px;
+    background: #D9E6E5;
+}
+
+.user-statistics {
+    background: white;
+    padding: 10px;
+    margin: 0;
 }
 
 @media (max-width: 960px) {
-  .user-question-form {
-    margin-left: 0;
-  }
+    .user-question-form {
+        margin-left: 0;
+    }
 
-  .user-question-form-div {
-    display: none;
-  }
+    .user-question-form-div {
+        display: none;
+    }
 }
 
 @media (min-width: 960px) {
-  .user-ask-button {
-    display: none;
-  }
+    .user-ask-button {
+        display: none;
+    }
 }

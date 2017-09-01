@@ -1,17 +1,34 @@
 <div class="question">
   <div class="question-content">
+
     <div class="question-text text-lead">
       <%= question.text %>
     </div>
 
     <% if question.answer.present? %>
-      <div class="question-answer text-lead">
-        <%= question.answer %>
-      </div>
+        <div class="question-answer text-lead">
+          <%= question.answer %>
+        </div>
     <% end %>
 
     <div class="question-date">
-      <%= question.created_at.strftime('%d %b %M:%H') %>
-    </div>
+      <%= l(question.created_at, format: :short) %>
+      <% if question.author.present? %>
+        |
+        <span class="author">
+          <%= link_to "@#{question.author.username}", user_path(question.author) %>
+        </span>
+      <% end %>
+      </div>
   </div>
+
+  <% if question.user == current_user %>
+      <% edit_icon = question.answer.blank? ? 'reply' : 'pencil' %>
+
+      <div class="question-actions">
+        <%= link_to fa_icon(edit_icon), edit_question_path(question) %>
+        <%= link_to fa_icon('trash-o'), question_path(question),
+                    method: :delete, data: {confirm: t("question.accurately_delete_the_question")} %>
+      </div>
+  <% end %>
 </div>

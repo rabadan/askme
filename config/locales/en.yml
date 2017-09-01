@@ -1,33 +1,54 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  title: "Good questions"
+  save: "Save"
+  return: "Return"
+  data_updated: "Data updated"
+  or: "or"
+  activerecord:
+    attributes:
+      user:
+        username: "Login"
+        name: "Your name"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        avatar_url: "URL your avatar"
+  sessions:
+    join_us: "Join us!"
+    sign_up: "Sign up"
+    sign_in: "Sign in"
+    exit: "Exit"
+    login: "Login"
+    password: "Password"
+    login_to_site: "Login to site"
+  user:
+    no_change_pass: "If you do not want to change the password, leave these fields blank!"
+    logined: "You are already logged in"
+    registered: "User registered successfully!"
+    bad_auth: "Wrong email or password"
+    bad_access: "Access is denied!"
+    avatar_url: "URL your avatar"
+    our_users: "Our users"
+    log_in: "You have successfully logged in"
+    log_out: "You successfully logged out"
+    edit_profile: "Edit Profile"
+    delete_profile: "Delete profile"
+    confirm_delete: "Are you sure you want to delete your profile?"
+    account_deleted: "Account deleted"
+  question:
+    one: "question"
+    other: "questions"
+    many: "questions"
+    ask_a_question: "Ask a question"
+    ask_me: "Ask me"
+    your_question_for: "Your question for @%{username}"
+    question_saved: "Question saved"
+    question: "Question"
+    answer: "Answer"
+    accurately_delete_the_question: "Accurately delete the question"
+    question_deleted: "Question deleted :("
+  errors:
+    attributes:
+      username:
+        invalid: "Only letters, numbers and _ are allowed"
+      color:
+        invalid: "Specify the correct hex color code. Example: # 2F2F2F"

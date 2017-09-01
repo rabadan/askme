@@ -3,27 +3,29 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
+  DEFAULT_COLOR = "#005a55"
 
   attr_accessor :password
 
-  has_many :questions
+  has_many :questions, dependent: :destroy
+  has_many :author_quetion, class_name: "Question", foreign_key: "author_id", dependent: :nullify
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
 
   validates :email, email: true
   validates :username, length: { maximum: 40 }
-  validates :username, format: { with: /\A[[:alnum:]_]+\z/,
-              message: "Only English letters, numbers and _ are allowed" }
+  validates :username, format: { with: /\A[[:alnum:]_]+\z/ }
+  validates :color, format: { with: /\A#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})\z/i}
 
   validates :password, presence: true, on: :create
   validates_confirmation_of :password
 
-  before_validation :name_correction
+  before_validation :username_downcase
   before_save :encrypt_password
 
-  def name_correction
-    username.downcase!
+  def username_downcase
+    username.downcase! if username.present?
   end
 
   def encrypt_password
@@ -43,6 +45,14 @@ class User < ApplicationRecord
 
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
+  end
+
+  def color
+    if self[:color].present?
+      self[:color]
+    else
+      DEFAULT_COLOR
+    end
   end
 
   def self.authenticate(email, password)

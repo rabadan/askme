@@ -1,0 +1,23 @@
+<div class="container content-wrapper buffer-both">
+  <h1 class="title-medium"><%= t("sessions.login_to_site") %></h1>
+
+  <div class="column-1-2">
+    <div class="form">
+      <%= form_tag sessions_path do %>
+        <div class="form-field">
+          <%= label_tag :email, "Email", class: 'form-label' %>
+          <%= text_field_tag :email, params[:email], class: 'form-text-field' %>
+        </div>
+
+        <div class="form-field">
+          <%= label_tag :password, t("sessions.password"), class: 'form-label' %>
+          <%= password_field_tag :password, '', class: 'form-text-field' %>
+        </div>
+
+        <div class="form-action">
+          <%= submit_tag t("sessions.sign_in"), class: 'button button-dark button-small' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

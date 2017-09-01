@@ -1,8 +1,56 @@
 ru:
-  hello: "Привет мир"
+  title: "Хорошие вопросы"
+  save: "Сохранить"
+  return: "Вернуться"
+  data_updated: "Данные обновлены"
+  or: "или"
+  activerecord:
+    attributes:
+      user:
+        username: "Логин"
+        name: "Ваше имя"
+        password: "Пароль"
+        password_confirmation: "Потдвердите пароль"
+        avatar_url: "URL вашей аватарки"
+        color: "Цвет фона"
+  sessions:
+    sign_up: "Зарегистрироваться"
+    sign_in: "Войти"
+    exit: "Выйти"
+    login: "Логин"
+    password: "Пароль"
+    login_to_site: "Войти на сайт"
+    join_us: "Присоединяйся к нам!"
+  user:
+    avatar_url: "URL вашей аватарки"
+    our_users: "Наши пользователи"
+    log_in: "вы успешно залогинились"
+    log_out: "вы успешно разлогинились"
+    bad_auth: 'Неправильный email или пароль'
+    bad_access: "Доступ запрещен!"
+    no_change_pass: "Если не хотите менять пароль — оставьте эти поля пустыми!"
+    edit_profile: "Изменение профиля"
+    logined: "Вы уже залогинены"
+    registered: "Пользователь успешно зарегестрирован!"
+    delete_profile: "Удалить профиль"
+    confirm_delete: "Вы уверены, что хотите удалить ваш профиль?"
+    account_deleted: "Аккаунт удален"
   question:
-    zero: "нет вопросов"
-    one: "%{count} вопрос"
-    few: "%{count} вопроса"
-    other: "%{count} вопросов"
-    many: "%{count} вопросов"
+    one: "вопрос"
+    few: "вопроса"
+    other: "вопросов"
+    many: "вопросов"
+    question: "Вопрос"
+    answer: "Ответ"
+    ask_a_question: "Задать вопрос"
+    ask_me: "Спроси меня"
+    your_question_for: "Ваш вопрос для @%{username}"
+    question_saved: "Вопрос сохранен"
+    accurately_delete_the_question: "Точно удалить вопрос"
+    question_deleted: "Вопрос удален :("
+  errors:
+    attributes:
+      username:
+        invalid: "разрешено только латинские буквы, цифры и _"
+      color:
+        invalid: "Укажите правильный шестнадцатеричный код цвета. Пример: # 2F2F2F"
