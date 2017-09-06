@@ -48,6 +48,8 @@ ru:
     question_saved: "Вопрос сохранен"
     accurately_delete_the_question: "Точно удалить вопрос"
     question_deleted: "Вопрос удален :("
+  tags:
+    search_on_tag: "Поиск вопросов по тегу"
   errors:
     attributes:
       username:

@@ -1,13 +1,15 @@
 <div class="question">
   <div class="question-content">
 
+    <div class="title-mini">Вопрос:</div>
     <div class="question-text text-lead">
-      <%= question.text %>
+      <%= make_tags_links(question.text).html_safe %>
     </div>
 
     <% if question.answer.present? %>
+        <div class="title-mini">Ответ:</div>
         <div class="question-answer text-lead">
-          <%= question.answer %>
+          <%= make_tags_links(question.answer).html_safe %>
         </div>
     <% end %>
 

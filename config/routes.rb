@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :questions, except: [:show, :new, :index]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :tags, only: :show, param: :name
 
   get 'sign_up' => 'users#new'
   get 'log_out' => 'sessions#destroy'

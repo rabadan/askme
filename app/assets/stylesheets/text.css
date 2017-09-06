@@ -23,6 +23,11 @@ a {
   margin-bottom: 6px;
 }
 
+.title-mini {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
 .text-lead {
   font-size: 20px;
   line-height: 28px;

@@ -1,0 +1,12 @@
+<div class="content-wrapper buffer-both text-center">
+  <div class="buffer-both">
+    <h1 class="title-medium"><%= t "tags.search_on_tag" %></h1>
+  </div>
+  <div class="tag-list-item">
+    <div class="tag-item">
+      <% @tags.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag.name.delete("#"))  %>
+      <% end %>
+    </div>
+  </div>
+</div>
