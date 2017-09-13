@@ -21,11 +21,11 @@
         <div class="header-nav">
           <% if current_user %>
               <%= link_to "@#{current_user.username}", user_path(current_user) %> |
-              <%= link_to t("sessions.exit"), log_out_path %>
+              <%= link_to t("sessions.exit"), session_path, data: {method: :delete} %>
           <% else %>
-              <%= link_to t("sessions.sign_up"), sign_up_path,
+              <%= link_to t("sessions.sign_up"), new_user_path,
                           class: 'button button-light button-small' %>
-              <%= link_to t("sessions.sign_in"), log_in_path,
+              <%= link_to t("sessions.sign_in"), new_session_path,
                           class: 'button button-light button-small' %>
           <% end %>
         </div>
