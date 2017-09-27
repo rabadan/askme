@@ -1,0 +1,49 @@
+.container.p-3
+  .jumbotron
+    .row
+      .col-md-9
+        h1.display-3 @#{@user.username}
+        .row
+          .col-md-3.text-center
+            .card
+              .card-body
+                h4.card-title
+                  = @questions_count
+                p.card-text
+                  = t("question", count: @questions_count)
+          .col-md-3.text-center
+            .card
+              .card-body
+                h4.card-title
+                  = @answers_count
+                p.card-text
+                  = t("question", count: @answers_count)
+          .col-md-3.text-center
+            .card
+              .card-body
+                h4.card-title
+                  = @unanswered_count
+                p.card-text
+                  = t("question", count: @unanswered_count)
+            h2.title-small
+        hr.my-4
+        .row
+          .col-md-12
+            .form
+              = form_for @new_question do |f|
+                = f.hidden_field :user_id
+                .form-group
+                  = f.label t("question.your_question_for", username: @user.username)
+                  br
+                  = f.text_area :text, class: 'form-control'
+                = recaptcha_tags size: 'compact' unless current_user.present?
+                .form-group
+                  = submit_tag t("question.ask_a_question"), class: 'button button-small button-dark'
+      .col-md-3
+        =image_tag user_avatar(@user), class: 'user-image', alt: '[Photo]'
+
+  .row
+    .col-md-12
+      .user-questions.buffer-both
+        .questions-list
+          = render partial: 'questions/question', collection: @questions

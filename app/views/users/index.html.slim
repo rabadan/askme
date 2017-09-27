@@ -1,0 +1,9 @@
+.content-wrapper.buffer-both.text-center
+  .buffer-both
+    h1.title-medium= t "user.our_users"
+    - @users.each do |user|
+      .users-list-item
+        .user-image-div.user-image-div-small
+          = link_to image_tag(user_avatar(user), class: 'rounded-circle'), user_path(user)
+
+= render partial: 'tags/list', object: @tags

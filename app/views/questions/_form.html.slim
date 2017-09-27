@@ -1,0 +1,22 @@
+.form
+  = form_for(@question) do |f|
+    - if @question.errors.any?
+      .form-errors
+        ul
+          - @question.errors.full_messages.each do |message|
+            li.form-error-message
+              = message
+    = f.hidden_field :user_id
+    .form-field
+      = f.label :text, t("question.question"), class: 'form-label'
+      = f.text_area :text, class: 'form-control'
+    - if current_user.present? && current_user == @question.user
+      .form-field
+        = f.label :answer, t("question.answer"), class: 'form-label'
+        = f.text_area :answer, class: 'form-control'
+    = recaptcha_tags unless current_user.present?
+    .form-action.buffer-both
+      br
+      = f.submit t("save"), class: 'btn btn-dark'
+      = " " + t("or") + " "
+      = link_to t("return"), user_path(@question.user)
