@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Question, type: :model do
-  context 'validations check' do
-    it { should validate_presence_of :name }
+  let(:q) { FactoryGirl.create(:question) }
 
-    subject { FactoryGirl.build(:tag) }
-
-    it { should validate_uniqueness_of :name }
+  context 'test' do
+    it { expect(q.text).to eq 'Как твои дела? #КакойТоТег666 Это точно вопрос?' }
   end
 end

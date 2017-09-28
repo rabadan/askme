@@ -6,10 +6,9 @@ class Tag < ApplicationRecord
   validates :name, presence: true, uniqueness: true, format: { with: REGEX_HASH_TAG }
 
   before_validation :name_downcase
-  before_save :name_downcase
 
   def name_downcase
-    self.name = name.mb_chars.downcase.to_s if name.present?
+    self.name = ru_downcase(name) if name.present?
   end
 
   def self.remove_unlinked_tags!
@@ -19,5 +18,4 @@ class Tag < ApplicationRecord
   def self.parse_hash_tags(text)
     text.scan(REGEX_HASH_TAG)
   end
-
 end
