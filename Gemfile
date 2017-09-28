@@ -29,6 +29,10 @@ gem 'recaptcha', require: 'recaptcha/rails'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3'
+
+  gem 'rspec-rails', '~> 3.4'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -38,6 +42,11 @@ end
 
 group :production do
   gem 'pg'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'launchy'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
