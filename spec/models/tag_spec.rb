@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Tag, type: :model do
   context 'unique tags' do
     it '.name_downcase' do
-      let(:tag) { FactoryGirl.create(:tag, name: "#ТегТестовый567") }
+      tag = FactoryGirl.create(:tag, name: "#ТегТестовый567")
       expect(tag.name).to eq("#тегтестовый567")
     end
 
@@ -22,7 +22,6 @@ RSpec.describe Tag, type: :model do
 
     it { expect(Tag.parse_hash_tags(text)).to contain_exactly("#tag", "#TAg","#taG" ,"#tag777") }
   end
-
 
   context '#remove_unlinked_tags!' do
     # todo

@@ -12,10 +12,10 @@ class Question < ApplicationRecord
   after_commit { Tag.remove_unlinked_tags! }
 
   def update_tags
-    find_text = self.text.to_s + ' ' + self.answer.to_s
+    find_tags = Tag.parse_hash_tags(self.text.to_s + ' ' + self.answer.to_s)
 
-    self.tags = Tag.parse_hash_tags(find_text).map do |tag_name|
-      Tag.find_or_create_by(name: ru_downcase(tag_name))
+    self.tags = find_tags.map {|t| ru_downcase(t)}.uniq.map do |tag_name|
+      Tag.find_or_create_by(name: tag_name)
     end
   end
 

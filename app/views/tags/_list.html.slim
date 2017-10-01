@@ -1,8 +1,9 @@
-.content-wrapper.buffer-both.text-center
-  .buffer-both
-    h1.title-medium
-      = t "tags.search_on_tag"
-  .tag-list-item
-    .tag-item
-      - @tags.each do |tag|
-        = link_to tag.name, tag_path(tag.name.delete("#"))
+- unless @tags.nil?
+  .content-wrapper.buffer-both.text-center
+    .buffer-both
+      h1.title-medium
+        = t "tags.search_on_tag"
+    .tag-list-item
+      .tag-item
+        - @tags.each do |tag|
+          = link_to tag.name, tag_path(tag.name.delete("#"))
