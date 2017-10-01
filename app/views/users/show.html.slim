@@ -1,10 +1,14 @@
 .container.p-3
-  .jumbotron.text-center
+  .jumbotron.text-center style="background:#{@user.color}"
     .row
       .col-md-3
         =image_tag user_avatar(@user), class: 'user-image', alt: '[Photo]'
       .col-md-9
-        h1.display-4 @#{@user.username}
+        h1.display-4
+          = "@#{@user.username}"
+        - if current_user
+          p
+            = link_to "Редактировать профиль", edit_user_url(@user)
         .row.align-bottom
           .col-md-4.text-center
             .card.p-2

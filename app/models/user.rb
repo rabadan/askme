@@ -3,7 +3,7 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
-  DEFAULT_COLOR = "#005a55"
+  DEFAULT_COLOR = "#e9ecef"
 
   attr_accessor :password
 

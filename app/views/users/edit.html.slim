@@ -1,32 +1,17 @@
 .container.content-wrapper.buffer-both
   h1.title-medium= t("user.edit_profile")
   .column-1-2
-    = form_for(@user) do |f|
-      - if @user.errors.any?
-        .form-errors
-          ul
-            - for message in @user.errors.full_messages
-              li.form-error-message= message
-      .form-field
-        = f.label :username, class: 'form-label'
-        = f.text_field :username, class: 'form-text-field'
-      .form-field
-        = f.label :name, class: 'form-label'
-        = f.text_field :name, class: 'form-text-field'
-      .form-field
-        = f.label :avatar_url, class: 'form-label'
-        = f.text_field :avatar_url, class: 'form-text-field'
-      .form-field
-        = f.label :color, class: 'form-label'
-        = f.color_field :color, class: 'form-text-field'
+    = simple_form_for(@user) do |f|
+      = f.input :username
+      = f.input :name
+      = f.input :avatar_url
+      .form-group.color.optional.user_color
+        = f.label :color, class: 'control-label color optional'
+        = f.color_field :color, class: 'form-control color optional p-0'
       .buffer-top-large.buffer-bottom
         = t("user.no_change_pass")
-      .form-field
-        = f.label :password, class: 'form-label'
-        = f.password_field :password, class: 'form-text-field'
-      .form-field
-        = f.label :password_confirmation, class: 'form-label'
-        = f.password_field :password_confirmation, class: 'form-text-field'
+      = f.input :password
+      = f.input :password_confirmation
       .form-action.buffer-top
         = f.submit t("save"), class: 'button button-dark button-small'
     br
