@@ -17,7 +17,7 @@ gem 'bootstrap', '~> 4.0.0.beta'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'email_validator'
-
+gem 'simple_form'
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'

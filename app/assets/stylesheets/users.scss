@@ -14,20 +14,18 @@
 .user-image-div {
   width: 100px;
   height: 100px;
-  margin: 0 auto;
-  border: 3px solid #00b6ad;
-  border-radius: 50%;
+  margin: 0 2px;
   overflow: hidden;
   img {
-    width: 72px;
-    height: 72px;
+    width: 75px;
+    height: 75px;
   }
 }
 
 .user-image-div-small {
   width: 75px;
   height: 75px;
-  border-width: 3px;
+  border-width: 0;
 }
 
 .user-image {
@@ -44,10 +42,6 @@
   padding-top: 10px;
   margin-top: 10px;
   border-top: 1px solid #D9E6E5;
-}
-
-.user-questions {
-  background: #D9E6E5;
 }
 
 .user-question-form {

@@ -1,31 +1,34 @@
 .container.p-3
   .jumbotron.text-center
-    =image_tag user_avatar(@user), class: 'user-image', alt: '[Photo]'
-    h1.display-3 @#{@user.username}
     .row
-      .col-md-4.text-center
-        .card
-          .card-body
-            h4.card-title
-              = @questions_count
-            p.card-text
-              = t("question", count: @questions_count)
-      .col-md-4.text-center
-        .card
-          .card-body
-            h4.card-title
-              = @answers_count
-            p.card-text
-              = t("question", count: @answers_count)
-      .col-md-4.text-center
-        .card
-          .card-body
-            h4.card-title
-              = @unanswered_count
-            p.card-text
-              = t("question", count: @unanswered_count)
-        h2.title-small
-    hr.my-4
+      .col-md-3
+        =image_tag user_avatar(@user), class: 'user-image', alt: '[Photo]'
+      .col-md-9
+        h1.display-4 @#{@user.username}
+        .row.align-bottom
+          .col-md-4.text-center
+            .card.p-2
+              .card-body
+                h4.card-title
+                  = @questions_count
+                p.card-text
+                  = t("question", count: @questions_count)
+          .col-md-4.text-center
+            .card.p-2
+              .card-body
+                h4.card-title
+                  = @answers_count
+                p.card-text
+                  = t("question", count: @answers_count)
+          .col-md-4.text-center
+            .card.p-2
+              .card-body
+                h4.card-title
+                  = @unanswered_count
+                p.card-text
+                  = t("question", count: @unanswered_count)
+            h2.title-small
+  hr.my-4
     .row
       .col-md-12
         .form
@@ -35,11 +38,9 @@
               = f.label t("question.your_question_for", username: @user.username)
               br
               = f.text_area :text, class: 'form-control'
-            = recaptcha_tags size: 'compact' unless current_user.present?
+            = recaptcha_tags unless current_user.present?
             .form-group
-              = submit_tag t("question.ask_a_question"), class: 'button button-small button-dark'
-
-
+              = submit_tag t("question.ask_a_question"), class: 'button button-small button-dark mt-2'
   .row
     .col-md-12
       .user-questions.buffer-both

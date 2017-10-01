@@ -24,17 +24,21 @@ html lang="en"
         .col-md-6
           a.navbar-brand href=root_path =t("title")
         .col-md-6
-          button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+          button.navbar-toggler aria-controls="navbarNavDropdown" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNavDropdown" data-toggle="collapse" type="button"
             span.navbar-toggler-icon
-          #navbarSupportedContent.collapse.navbar-collapse.float-right
-            ul.navbar-nav.mr-auto
+          #navbarNavDropdown.collapse.navbar-collapse.pull-right
+            ul.navbar-nav
               - if current_user
-                = link_to "@#{current_user.username}", user_path(current_user), class: 'nav-link'
-                = link_to t("sessions.exit"), session_path, data: {method: :delete}, class: 'nav-link'
+                li
+                  = link_to "@#{current_user.username}", user_path(current_user), class: 'nav-link'
+                li
+                  = link_to t("sessions.exit"), session_path, data: {method: :delete}, class: 'nav-link'
               - else
-                = link_to t("sessions.sign_up"), new_user_path, class: 'nav-link'
-                = link_to t("sessions.sign_in"), new_session_path, class: 'nav-link'
-    div
+                li
+                  = link_to t("sessions.sign_up"), new_user_path, class: 'nav-link'
+                li
+                  = link_to t("sessions.sign_in"), new_session_path, class: 'nav-link'
+    div.mt-3
       = yield
 
 

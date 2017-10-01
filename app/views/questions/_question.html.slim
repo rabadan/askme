@@ -1,22 +1,25 @@
 .question.pt-2
   .card
-    .card-body
+    .card-body.p-2
       .row
         .col-md-6
           span Вопрос:
         .col-md-6.text-right
-          = l(question.created_at, format: :short)
           - if question.author.present?
             span.author.pl-2
+              = "От: "
               = link_to "@#{question.author.username}", user_path(question.author)
           - if question.user == current_user
             - edit_icon = question.answer.blank? ? 'reply' : 'pencil'
             .question-actions.float-right.pl-2
               = link_to fa_icon(edit_icon), edit_question_path(question), class: 'pl-1'
               = link_to fa_icon('trash-o'), question_path(question), class: 'pl-1', method: :delete, data: {confirm: t("question.accurately_delete_the_question")}
+          span.pl-1
+            = l(question.created_at, format: :short)
       h4.card-title = make_tags_links(question.text).html_safe
       p.card-text
-      - if question.answer.present?
+    - if question.answer.present?
+      .card-footer
         span Ответ:
         h4.card-title
           .question-answer.text-lead

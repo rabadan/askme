@@ -1,9 +1,14 @@
 - unless @tags.nil?
-  .content-wrapper.buffer-both.text-center
+  .content-wrapper.buffer-both.mt-4
     .buffer-both
       h1.title-medium
         = t "tags.search_on_tag"
-    .tag-list-item
-      .tag-item
-        - @tags.each do |tag|
-          = link_to tag.name, tag_path(tag.name.delete("#"))
+  div
+    /<div class="btn-group" role="group" aria-label="Basic example">
+    /  <button type="button" class="btn btn-secondary">Left</button>
+    /  <button type="button" class="btn btn-secondary">Middle</button>
+    /  <button type="button" class="btn btn-secondary">Right</button>
+    /</div>btn-group btn-group-sm" role="group"
+    .btn-group.btn-group-sm role="group" aria-label="sfvsv"
+      - @tags.each do |tag|
+        = link_to tag.name, tag_path(tag.name.delete("#")), class: "btn btn-light"

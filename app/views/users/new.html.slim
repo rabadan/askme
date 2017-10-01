@@ -2,28 +2,12 @@
   h1.title-medium
     = t("sessions.join_us")
   .col-md-6
-    = form_for @user, html: {class: 'form-signin'} do |f|
-      - if @user.errors.any?
-        .form-errors
-          ul.p-0
-            - for message in @user.errors.full_messages
-              li.p-1.mb-1.bg-danger.text-white
-                = message
-      .form-group
-        = f.label :email
-        = f.text_field :email, class: 'form-control'
-      .form-field
-        = f.label :username
-        = f.text_field :username, class: 'form-control'
-      .form-field
-        = f.label :name, class: 'form-label'
-        = f.text_field :name, class: 'form-control'
-      .form-field
-        = f.label :password, class: 'form-label'
-        = f.password_field :password, class: 'form-control'
-      .form-field
-        = f.label :password_confirmation, class: 'form-label'
-        = f.password_field :password_confirmation, class: 'form-control'
+    = simple_form_for @user do |f|
+      = f.input :email
+      = f.input :username
+      = f.input :name
+      = f.input :password
+      = f.input :password_confirmation
       br
       .form-action
         = f.submit t("sessions.sign_up"), class: 'btn btn-primary'

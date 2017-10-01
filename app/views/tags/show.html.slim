@@ -1,10 +1,11 @@
-.content-wrapper.buffer-both.text-center
-  .buffer-both
-    h1.title-medium
-      | Все впоросы с тегом: 
-      = @tag.name
-.user-questions.buffer-both
-  .questions-list
-    - @questions.each do |question|
-      = render partial: 'questions/question', object: question
-= render partial: 'tags/list', object: @tags
+.container
+  .content-wrapper.buffer-both.text-center
+    .buffer-both
+      h1.title-medium
+        | Все впоросы с тегом:
+        = @tag.name
+  .user-questions.buffer-both
+    .questions-list
+      - @questions.each do |question|
+        = render partial: 'questions/question', object: question
+  = render partial: 'tags/list', object: @tags
