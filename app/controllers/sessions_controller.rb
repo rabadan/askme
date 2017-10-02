@@ -7,15 +7,15 @@ class SessionsController < ApplicationController
 
     if @user.present?
       session[:user_id] = @user.id
-      redirect_to root_url, notice: t("user.log_in")
+      redirect_to root_url, notice: t('user.log_in')
     else
-      flash.now.alert = t("user.bad_auth")
+      flash.now.alert = t('user.bad_auth')
       render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: t("user.log_out")
+    redirect_to root_url, notice: t('user.log_out')
   end
 end

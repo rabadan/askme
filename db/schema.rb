@@ -12,40 +12,40 @@
 
 ActiveRecord::Schema.define(version: 20170908175020) do
 
-  create_table "questions", force: :cascade do |t|
-    t.string "text"
-    t.string "answer"
-    t.integer "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["user_id"], name: "index_questions_on_user_id"
+  create_table 'questions', force: :cascade do |t|
+    t.string 'text'
+    t.string 'answer'
+    t.integer 'author_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'user_id'
+    t.index ['user_id'], name: 'index_questions_on_user_id'
   end
 
-  create_table "questions_tags", id: false, force: :cascade do |t|
-    t.integer "question_id", null: false
-    t.integer "tag_id", null: false
-    t.index ["question_id", "tag_id"], name: "index_questions_tags_on_question_id_and_tag_id"
-    t.index ["tag_id", "question_id"], name: "index_questions_tags_on_tag_id_and_question_id"
+  create_table 'questions_tags', id: false, force: :cascade do |t|
+    t.integer 'question_id', null: false
+    t.integer 'tag_id', null: false
+    t.index %w(question_id tag_id), name: 'index_questions_tags_on_question_id_and_tag_id'
+    t.index %w(tag_id question_id), name: 'index_questions_tags_on_tag_id_and_question_id'
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_tags_on_name"
+  create_table 'tags', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['name'], name: 'index_tags_on_name'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "username"
-    t.string "email"
-    t.string "password_hash"
-    t.string "password_salt"
-    t.string "avatar_url"
-    t.string "color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'username'
+    t.string 'email'
+    t.string 'password_hash'
+    t.string 'password_salt'
+    t.string 'avatar_url'
+    t.string 'color'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
 end

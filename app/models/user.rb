@@ -3,12 +3,12 @@ require 'openssl'
 class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
-  DEFAULT_COLOR = "#e9ecef"
+  DEFAULT_COLOR = '#e9ecef'
 
   attr_accessor :password
 
   has_many :questions, dependent: :destroy
-  has_many :author_quetion, class_name: "Question", foreign_key: "author_id", dependent: :nullify
+  has_many :author_quetion, class_name: 'Question', foreign_key: 'author_id', dependent: :nullify
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true

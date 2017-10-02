@@ -8,18 +8,18 @@ class UsersController < ApplicationController
   end
 
   def new
-    redirect_to root_url, alert: t("user.logined") if current_user.present?
+    redirect_to root_url, alert: t('user.logined') if current_user.present?
     @user = User.new
   end
 
   def create
-    redirect_to root_url, alert: t("user.logined") if current_user.present?
+    redirect_to root_url, alert: t('user.logined') if current_user.present?
 
     @user = User.new(user_params)
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: t("user.registered")
+      redirect_to root_url, notice: t('user.registered')
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: t("data_updated")
+      redirect_to user_path(@user), notice: t('data_updated')
     else
       render 'edit'
     end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    redirect_to root_url, notice: t("user.account_deleted")
+    redirect_to root_url, notice: t('user.account_deleted')
   end
 
   private

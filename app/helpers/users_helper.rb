@@ -3,7 +3,7 @@ module UsersHelper
     if user.avatar_url.present?
       user.avatar_url
     else
-      "https://placeholdit.imgix.net/~text?txtsize=90&txt=#{user.username[0..3]}&w=240&h=240&bg=#{user.color.delete("#")}"
+      "https://placeholdit.imgix.net/~text?txtsize=90&txt=#{user.username[0..3]}&w=240&h=240&bg=#{user.color.delete('#')}"
     end
   end
 end

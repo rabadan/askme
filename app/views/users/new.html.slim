@@ -1,6 +1,6 @@
 .container.content-wrapper.buffer-both
   h1.title-medium
-    = t("sessions.join_us")
+    = t('sessions.join_us')
   .col-md-6
     = simple_form_for @user do |f|
       = f.input :email
@@ -10,4 +10,4 @@
       = f.input :password_confirmation
       br
       .form-action
-        = f.submit t("sessions.sign_up"), class: 'btn btn-primary'
+        = f.submit t('sessions.sign_up'), class: 'btn btn-primary'

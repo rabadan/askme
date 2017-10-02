@@ -1,5 +1,5 @@
 .container.content-wrapper.buffer-both
-  h1.title-medium= t("user.edit_profile")
+  h1.title-medium= t('user.edit_profile')
   .column-1-2
     = simple_form_for(@user) do |f|
       = f.input :username
@@ -9,12 +9,12 @@
         = f.label :color, class: 'control-label color optional'
         = f.color_field :color, class: 'form-control color optional p-0'
       .buffer-top-large.buffer-bottom
-        = t("user.no_change_pass")
+        = t('user.no_change_pass')
       = f.input :password
       = f.input :password_confirmation
       .form-action.buffer-top
-        = f.submit t("save"), class: 'button button-dark button-small'
+        = f.submit t('save'), class: 'button button-dark button-small'
     br
     hr
     br
-    = link_to t("user.delete_profile"), user_path(@user), method: :delete, data: {confirm: t("user.confirm_delete")}, class: 'button button-red button-small'
+    = link_to t('user.delete_profile'), user_path(@user), method: :delete, data: {confirm: t('user.confirm_delete')}, class: 'button button-red button-small'

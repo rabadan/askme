@@ -52,3 +52,5 @@ en:
         invalid: "Only letters, numbers and _ are allowed"
       color:
         invalid: "Specify the correct hex color code. Example: # 2F2F2F"
+  tags:
+    search_on_tag: "search on tag"

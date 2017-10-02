@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def reject_user
-    redirect_to root_path, alert: t("user.bad_access")
+    redirect_to root_path, alert: t('user.bad_access')
   end
 end

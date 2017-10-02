@@ -23,28 +23,28 @@ RSpec.describe SessionsController, type: :controller do
   # SessionsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #new" do
-    it "returns a success response" do
+  describe 'GET #new' do
+    it 'returns a success response' do
       get :new, params: {}
       expect(response).to be_success
     end
   end
 
-  describe "POST #create" do
+  describe 'POST #create' do
 
-    context "with valid params" do
-      it "creates a new Session" do
+    context 'with valid params' do
+      it 'creates a new Session' do
         post :create, params: valid_attributes
         expect(session[:user_id]).to eq(user.id)
       end
 
-      it "redirects to the created session" do
+      it 'redirects to the created session' do
         post :create, params: valid_attributes
         expect(response).to redirect_to(root_url)
       end
     end
 
-    context "with invalid params" do
+    context 'with invalid params' do
       it "returns a success response (i.e. to display the 'new' template)" do
         post :create, params: invalid_attributes
         expect(response).to be_success
@@ -52,14 +52,14 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested session" do
+  describe 'DELETE #destroy' do
+    it 'destroys the requested session' do
       session[:user_id] = user.id
       delete :destroy, params: {}, session: { user_id: user.id }
       expect(session[:user_id]).not_to be
     end
 
-    it "redirects to the sessions list" do
+    it 'redirects to the sessions list' do
       delete :destroy, params: {}, session: { user_id: user.id }
       expect(response).to redirect_to(root_path)
     end

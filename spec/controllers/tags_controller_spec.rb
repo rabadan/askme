@@ -7,9 +7,9 @@ RSpec.describe TagsController, type: :controller do
     FactoryGirl.create(:tag, questions: [question])
   }
 
-  describe "GET #show" do
-    it "returns a success response" do
-      get :show, params: {name: tag.name.delete("#") }
+  describe 'GET #show' do
+    it 'returns a success response' do
+      get :show, params: {name: tag.name.delete('#') }
       expect(response).to be_success
     end
   end

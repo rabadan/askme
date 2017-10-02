@@ -1,15 +1,15 @@
 
 .container.content-wrapper.buffer-both
   h1.title-medium
-    = t("sessions.login_to_site")
+    = t('sessions.login_to_site')
   .col-md-3
     = form_tag session_path, class: 'form-signin' do
       h3.form-signin-heading
       .form-field
-        = label_tag :email, "Email", class: 'sr-only'
-        = text_field_tag :email, params[:email], class: 'form-control', placeholder: "Email"
-        = label_tag :password, t("sessions.password"), class: 'sr-only'
-        = password_field_tag :password, '', class: 'form-control', placeholder: t("sessions.password")
+        = label_tag :email, 'Email', class: 'sr-only'
+        = text_field_tag :email, params[:email], class: 'form-control', placeholder: 'Email'
+        = label_tag :password, t('sessions.password'), class: 'sr-only'
+        = password_field_tag :password, '', class: 'form-control', placeholder: t('sessions.password')
       br
       .form-action
-        = submit_tag t("sessions.sign_in"), class: 'btn btn-lg btn-primary btn-block'
+        = submit_tag t('sessions.sign_in'), class: 'btn btn-lg btn-primary btn-block'
