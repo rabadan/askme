@@ -28,5 +28,9 @@ bundle exec rails s -b 0.0.0.0 -p 3000
 ```
 
 ### Screenshot
-![Ask question](app/assets/images?raw=true "Ask")
+![Ask question](app/assets/images/screen.png?raw=true "Ask")
 
+### Author
+[Rabadan Akagasanov](http://rabadan.ru)
+ 
+For all questions and suggestions please contact: rabadan731@yandex.ru
