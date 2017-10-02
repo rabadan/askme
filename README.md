@@ -1,24 +1,32 @@
-# README
+## ASK.ME
+#### Ask.fm clone made for learning the basics about Ruby and Rails. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The project is based on `Ruby on Rails` for training purposes. 
+About Ask.Fm: https://wikipedia.org/wiki/ASKfm
 
-Things you may want to cover:
+#### Demo
+http://askme.rabadan.ru
 
-* Ruby version
+### How to install:
+```ssh
+git clone git@github.com:rabadan/askme.git askme
+cd askme
+bundle install
+bundle exec rake db:migrate
+```
 
-* System dependencies
+### Set ENV key you environments
+#### REcaptha https://www.google.com/recaptcha
+```
+RECAPTCHA_ASKME_PRIVATE_KEY = <REcaptha private key>
+RECAPTCHA_ASKME_PUBLIC_KEY = <REcaptha public key>
+```
 
-* Configuration
+### Start the server
+```ssh
+bundle exec rails s -b 0.0.0.0 -p 3000
+```
 
-* Database creation
+### Screenshot
+![Ask question](app/assets/images?raw=true "Ask")
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
