@@ -18,32 +18,34 @@ RSpec.feature 'UserCreateQuestions', type: :feature do
     expect(page).to have_content('Вопрос: #tag как дела?')
   end
 
-  scenario 'success find question on tag' do
+  context 'correct of search questions by tag' do
     FactoryGirl.create(:question, text: 'question1 #tag #Tag #tAg #taG', answer: '#answer1')
     FactoryGirl.create(:question, text: 'question2 #tag #Tag #tAg #taG', answer: '#answer2')
     FactoryGirl.create(:question, text: 'question3 #teg #Teg #teg #teG', answer: '#answer3')
 
-    visit '/'
+    scenario 'correct find' do
+      visit '/'
 
-    click_link '#tag'
-    expect(page).to have_content('question1 #tag #Tag #tAg #taG')
-    expect(page).to have_content('question2')
-    expect(page).not_to have_content('question3')
+      click_link '#tag'
+      expect(page).to have_content('question1 #tag #Tag #tAg #taG')
+      expect(page).to have_content('question2')
+
+      click_link '#answer3'
+
+      expect(page).to have_content('question3 #teg #Teg #teg #teG')
+    end
+
+    scenario 'incorrect find' do
+      visit '/'
+
+      click_link '#tag'
+      expect(page).not_to have_content('question3')
 
 
-    click_link '#answer3'
+      click_link '#answer3'
 
-    expect(page).to have_content('question3 #teg #Teg #teg #teG')
-    expect(page).not_to have_content('question1')
-    expect(page).not_to have_content('question2')
-  end
-
-
-  def login(user_loging)
-    visit '/session/new'
-
-    fill_in 'Email', with: user_loging.email
-    fill_in 'Пароль', with: user_loging.password
-    click_button 'Войти'
+      expect(page).not_to have_content('question1')
+      expect(page).not_to have_content('question2')
+    end
   end
 end

@@ -40,7 +40,6 @@
             = f.hidden_field :user_id
             .form-group
               = f.label t('question.your_question_for', username: @user.username)
-              br
               = f.text_area :text, class: 'form-control'
             = recaptcha_tags unless current_user.present?
             .form-group

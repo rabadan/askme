@@ -51,3 +51,13 @@ end
 def current_user
   User.last
 end
+
+Capybara.asset_host = "http://localhost:3000"
+
+def login(user_loging)
+  visit '/session/new'
+
+  fill_in 'Email', with: user_loging.email
+  fill_in 'Пароль', with: user_loging.password
+  click_button 'Войти'
+end

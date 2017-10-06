@@ -44,7 +44,7 @@ ru:
     answer: "Ответ"
     ask_a_question: "Задать вопрос"
     ask_me: "Спроси меня"
-    your_question_for: "Ваш вопрос для @%{username}"
+    your_question_for: "Ваш вопрос"
     question_saved: "Вопрос сохранен"
     accurately_delete_the_question: "Точно удалить вопрос"
     question_deleted: "Вопрос удален :("
