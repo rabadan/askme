@@ -13,15 +13,17 @@ RSpec.feature 'UserCreateQuestions', type: :feature do
 
     visit user_path(user2)
 
-    fill_in 'question[text]', with: 'Вопрос: #tag как дела?'
+    fill_in 'Ваш вопрос', with: 'Вопрос: #tag как дела?'
     click_button 'Задать вопрос'
     expect(page).to have_content('Вопрос: #tag как дела?')
   end
 
   context 'correct of search questions by tag' do
-    FactoryGirl.create(:question, text: 'question1 #tag #Tag #tAg #taG', answer: '#answer1')
-    FactoryGirl.create(:question, text: 'question2 #tag #Tag #tAg #taG', answer: '#answer2')
-    FactoryGirl.create(:question, text: 'question3 #teg #Teg #teg #teG', answer: '#answer3')
+    before(:each) do
+      FactoryGirl.create(:question, text: 'question1 #tag #Tag #tAg #taG', answer: '#answer1')
+      FactoryGirl.create(:question, text: 'question2 #tag #Tag #tAg #taG', answer: '#answer2')
+      FactoryGirl.create(:question, text: 'question3 #teg #Teg #teg #teG', answer: '#answer3')
+    end
 
     scenario 'correct find' do
       visit '/'
