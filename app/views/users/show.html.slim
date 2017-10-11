@@ -36,11 +36,9 @@
     .row
       .col-md-12
         .form
-          = form_for @new_question do |f|
+          = simple_form_for @new_question do |f|
             = f.hidden_field :user_id
-            .form-group
-              = f.label t('question.your_question_for', username: @user.username)
-              = f.text_area :text, class: 'form-control'
+            = f.input :text, as: :text
             = recaptcha_tags unless current_user.present?
             .form-group
               = submit_tag t('question.ask_a_question'), class: 'button button-small button-dark mt-2'

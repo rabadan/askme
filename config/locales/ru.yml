@@ -6,6 +6,8 @@ ru:
   or: "или"
   activerecord:
     attributes:
+      question:
+        text: "Ваш вопрос"
       user:
         username: "Логин"
         name: "Ваше имя"

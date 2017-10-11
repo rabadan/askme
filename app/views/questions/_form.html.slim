@@ -1,5 +1,5 @@
 .form
-  = form_for(@question) do |f|
+  = simple_form_for(@question) do |f|
     - if @question.errors.any?
       .form-errors
         ul
@@ -7,13 +7,9 @@
             li.form-error-message
               = message
     = f.hidden_field :user_id
-    .form-field
-      = f.label :text, t('question.question'), class: 'form-label'
-      = f.text_area :text, class: 'form-control'
+    = f.input :text, as: :text
     - if current_user.present? && current_user == @question.user
-      .form-field
-        = f.label :answer, t('question.answer'), class: 'form-label'
-        = f.text_area :answer, class: 'form-control'
+      = f.input :answer, as: :text
     = recaptcha_tags unless current_user.present?
     .form-action.buffer-both
       br

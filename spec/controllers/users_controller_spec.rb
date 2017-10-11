@@ -95,6 +95,7 @@ RSpec.describe UsersController, type: :controller do
       it "returns a success response (i.e. to display the 'edit' template)" do
         put :update, params: {id: user.to_param, user: invalid_attributes}, session: valid_session
         expect(response).to be_success
+        expect(response).to render_template(:edit)
       end
     end
   end
